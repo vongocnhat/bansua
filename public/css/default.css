@@ -1,0 +1,107 @@
+.btn, .card, .dropdown-menu, .form-control {
+	border-radius: 0;
+}
+
+#number-product {
+	background-color: #39b0e3;
+	width: 25px;
+	height: 25px;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 25px;
+}
+
+.width-200 {
+	width: 200px;
+}
+
+label {
+	font-weight: bold;
+}
+
+.icon-submit {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	color: #fb6060;
+	cursor: pointer;
+}
+
+.product-to-top {
+	position: fixed;
+	z-index: 1;
+	width : 50px;
+	height: 50px;
+	border: 1px solid red;
+}
+
+.required, .error {
+	color: red;
+}
+
+.table-n td, .table-n th {
+	padding: 6px;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.no-spin::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display:none;
+  -moz-appearance: none;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+.m-t-b {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.navbar-n .navbar-nav .nav-link {
+	color: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+	opacity: 1;
+}
+
+img {
+	width: 100%;
+}
+
+.p-15 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.color-blue {
+	color: rgb(53, 140, 201);
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.input-quantity {
+	width: 70px;
+}
+.user-box {
+	width: calc(100% - 315px);
+	margin-right: 15px;
+}
+
+.d-none-n {
+	display: none;
+}
+
+#btn-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}

@@ -1,0 +1,69 @@
+#exampleAccordion {
+    overflow-x: hidden;
+}
+
+#dataTable_wrapper {
+	margin-top: 14px;
+}
+
+input[name=phone]::-webkit-outer-spin-button,
+input[name=phone]::-webkit-inner-spin-button,
+input[name=price]::-webkit-outer-spin-button,
+input[name=price]::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.space-nowrap {
+	white-space: nowrap;
+}
+
+label {
+	font-weight: bold;
+}
+
+button {
+	cursor: pointer;
+}
+
+.icon-submit {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	color: #fb6060;
+}
+
+.icon-submit:hover {
+	color: #dc3545;
+}
+
+.p-15 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.no-spin::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display:none;
+  -moz-appearance: none;
+}
+
+.m-t-b {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.required, .error {
+	color: #fb6060;
+}
+
+.d-flex-center {
+	display: flex;
+    align-items: center
+}
+
+.thumb-n {
+	width: 50px;
+	height: 50px;
+}

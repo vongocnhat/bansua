@@ -1,0 +1,48 @@
+.dialog-dark {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .7);
+	overflow-y: scroll;
+	overflow-x: auto;
+	display: none;
+	z-index: 2;
+}
+
+.dialog-box {
+	background-color: #fff;
+	display: table;
+	margin: 15px auto;
+	max-width: calc(100% - 30px);
+}
+
+.dialog-titlebox {
+	height: 38px;
+	border-bottom: 1px solid #28a745;
+	background-color: #c9dff5;
+	padding-left: 15px;
+}
+
+.dialog-title {
+	line-height: 38px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.btn-cancel {
+	float: right;
+}
+
+.dialog-content {
+	padding: 15px;
+}
+
+#notify-box {
+	display: flex;
+	overflow: hidden;
+}
+#notify-box .dialog-box {
+	margin: auto;
+}
