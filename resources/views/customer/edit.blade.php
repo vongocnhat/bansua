@@ -51,18 +51,13 @@
 				{{ Form::text('country', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
-				{{ Form::label('address', 'Address') }}
+				{{ Form::label('address', 'Địa Chỉ:') }}
 				{{ Form::text('address', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
-				{{ Form::label('active', 'Active:') }}
-				<label class="border p-1">Yes {{ Form::radio('active', 1, null) }}</label>
-				<label class="border p-1">No {{ Form::radio('active', 0, null) }}</label>
-			</div>
-			<div class="form-group">
-				{{ Form::label(null, 'Gender:') }}
-				<label class="border p-1">Male {{ Form::radio('gender', 1, null) }}</label>
-				<label class="border p-1">Female {{ Form::radio('gender', 0, null) }}</label>
+				{{ Form::label(null, 'Giới Tính:') }}
+				<label class="border p-1">Nam {{ Form::radio('gender', 1, null) }}</label>
+				<label class="border p-1">Nữ {{ Form::radio('gender', 0, null) }}</label>
 			</div>
 		</div>
 		<div class="form-group col-12">

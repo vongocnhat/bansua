@@ -95,5 +95,7 @@
 <div class="fb-comments col-12" data-width="100%" data-href="https://www.youtube.com/{{ route('productShowHome', $product->id) }}" data-numposts="5"></div>
 <script type="text/javascript">
     FB.XFBML.parse();
-    $('.product-image').elevateZoom({scrollZoom : true});
+    $(document).ready(function() {
+        $('.product-image').elevateZoom();
+    });
 </script>

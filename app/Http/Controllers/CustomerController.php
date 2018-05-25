@@ -18,7 +18,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
     	$user = new User;
-    	$user->fill($request->except('password'));
+    	$user->fill($request->except('password', 'active', 'admin'));
     	$user->password = Hash::make($request->input('password'));
     	$user->save();
     	return redirect()->route('home');
@@ -38,7 +38,7 @@ class CustomerController extends Controller
         if (Auth::check())
         {
             $user = User::findOrFail(Auth::user()->id);
-            $user->fill($request->except('password'));
+            $user->fill($request->except('password', 'active', 'admin'));
             $user->password = Hash::make($request->input('password'));
             session()->flash('notify', 'Cập Nhật Thông Tin Người Dùng Thành Công!');
             return redirect()->route('customer.edit', $user->id);
