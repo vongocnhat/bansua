@@ -11,7 +11,7 @@
       <tr>
         <th>{{ Form::checkbox(null, null, null, ['class' => 'parent-checkbox-delete']) }}</th>
         <th>ID</th>
-        <th>ProductID</th>
+        <th>Product Name</th>
         <th>price</th>
         <th>Start Date</th>
         <th>End Date</th>
@@ -24,7 +24,7 @@
       <tr>
         <th>{{ Form::checkbox(null, null, null, ['class' => 'parent-checkbox-delete']) }}</th>
         <th>ID</th>
-        <th>ProductID</th>
+        <th>Product Name</th>
         <th>price</th>
         <th>Start Date</th>
         <th>End Date</th>
@@ -38,7 +38,7 @@
       <tr>
         <td>{{ Form::checkbox('ids[]', $promotion->id, null, ['class' => 'checkbox-delete']) }}</td>
         <td>{{ $promotion->id }}</td>
-        <td>{{ $promotion->product_id }}</td>
+        <td>{{ $promotion->product->name }} ( {{ $promotion->product_id }} )</td>
         <td>{{ number_format($promotion->price) }} đ</td>
         <td>{{ date('d/m/Y', strtotime($promotion->start)) }}</td>
         <td>{{ date('d/m/Y', strtotime($promotion->end)) }}</td>

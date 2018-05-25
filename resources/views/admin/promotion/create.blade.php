@@ -9,19 +9,19 @@
 		<div class="col-12 col-md-6">
 			<div class="form-group">
 				{{ Form::label('product_id', 'Product Name:') }}
-				{{ Form::select('product_id', $products, null, ['class' => 'form-control', 'placeholder' => 'Please Select', 'required']) }}
+				{{ Form::select('product_id', $products, null, ['class' => 'form-control', 'placeholder' => 'Please Select']) }}
 			</div>
 			<div class="form-group">
-				{{ Form::label('price', 'Price:') }}
-				{{ Form::number('price', null, ['class' => 'form-control price', 'required']) }}
+				{{ Form::label('price', 'Price Promotion:') }}
+				{{ Form::number('price', null, ['class' => 'form-control price']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('start', 'Start Date:') }}
-				{{ Form::date('start', null, ['class' => 'form-control no-spin', 'required']) }}
+				{{ Form::date('start', null, ['class' => 'form-control no-spin']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('end', 'End Date:') }}
-				{{ Form::date('end', null, ['class' => 'form-control no-spin', 'required']) }}
+				{{ Form::date('end', null, ['class' => 'form-control no-spin']) }}
 			</div>
 		</div>
 		<div class="form-group col-12">

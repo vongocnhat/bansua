@@ -34,7 +34,7 @@
       <button class="btn btn-danger btn-cancel">X</button>
     </div>
     <div class="dialog-content">
-      {{ Form::open(['route' => 'userCus.login', 'method' => 'post', 'id' => 'login-form']) }}
+      {{ Form::open(['route' => 'customer.login', 'method' => 'post', 'id' => 'login-form']) }}
         <div class="form-group"> 
           {{ Form::label('email', 'Email Hoặc Số Điện Thoại: ') }}
           {{ Form::text('email', null, ['class' => 'form-control', 'required']) }}
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group m-t-b"> 
           {{ Form::submit('Đăng Nhập', ['class' => 'btn btn-success']) }}
-          <a href="{{ route('userCus.create') }}" class="btn btn-info float-right">Đăng Ký</a>
+          <a href="{{ route('customer.create') }}" class="btn btn-info float-right">Đăng Ký</a>
         </div>
       {{ Form::close() }}
     </div>

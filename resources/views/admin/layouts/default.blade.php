@@ -14,10 +14,23 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         @if(Session::has('notify'))
-        <span class="alert-success p-15">{{ Session::get('notify') }}</span>
+        <div class="alert alert-success p-15">
+          <span class="alert-success p-15">{{ Session::get('notify') }}</span>
+        </div>
         @endif
         @if(Session::has('error'))
-        <span class="alert-danger p-15">{{ Session::get('error') }}</span>
+        <div class="alert alert-danger p-15">
+          <span class="alert-danger">{{ Session::get('error') }}</span>
+        </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger p-15">
+          <ol class="errors-ol">
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ol>
+        </div>
         @endif
         @yield('content')
       </div>

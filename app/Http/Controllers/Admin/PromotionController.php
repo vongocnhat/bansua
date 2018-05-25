@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Promotion\PromotionStoreRequest;
+use App\Http\Requests\Promotion\PromotionUpdateRequest;
+use App\Http\Requests\Promotion\PromotionDestroyRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Promotion;
@@ -29,7 +31,8 @@ class PromotionController extends Controller
     public function create()
     {
         //
-        $productsDB = Product::pluck('name', 'id');
+        $productIDsInPromotion = Promotion::pluck('product_id');
+        $productsDB = Product::whereNotIn('id', $productIDsInPromotion)->pluck('name', 'id');
         $products = [];
         foreach ($productsDB as $key => $productDB) {
             $products[$key] = $productDB . ' ( ID: ' . $key . ' )';
@@ -43,7 +46,7 @@ class PromotionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PromotionStoreRequest $request)
     {
         //
         $promotion = new Promotion;
@@ -73,12 +76,20 @@ class PromotionController extends Controller
     public function edit($id)
     {
         //
-        $productsDB = Product::pluck('name', 'id');
+        $promotion = Promotion::findOrFail($id);
+        $productIDsInPromotion = Promotion::pluck('product_id');
+        foreach ($productIDsInPromotion as $key => $value) {
+            if ($value == $promotion->product->id) {
+                $productIDsInPromotion->forget($key);
+                break;
+            }
+        }
+        $productsDB = Product::whereNotIn('id', $productIDsInPromotion)->pluck('name', 'id');
         $products = [];
         foreach ($productsDB as $key => $productDB) {
             $products[$key] = $productDB . ' ( ID: ' . $key . ' )';
         }
-        $promotion = Promotion::findOrFail($id);
+        
         return view('admin.promotion.edit', compact('promotion', 'products'));
     }
 
@@ -89,7 +100,7 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PromotionUpdateRequest $request, $id)
     {
         //
         $promotion = Promotion::findOrFail($id);
@@ -105,13 +116,9 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(PromotionDestroyRequest $request, $id)
     {
         //
-        if (!$request->input('ids')) {
-            session()->flash('error', 'Delete Error: Please select at least one checkbox!');
-            return back();
-        }
         $deleted = Promotion::destroy($request->input('ids'));
         if ($deleted == count($request->input('ids')))
             session()->flash('notify', 'Delete success!');

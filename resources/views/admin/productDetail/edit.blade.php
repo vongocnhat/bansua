@@ -10,19 +10,19 @@
 		<div class="col-12 col-md-6">
 			<div class="form-group">
 				{{ Form::label('productName', 'Product Name:') }}
-				{{ Form::text('productName', $productNameAndID, ['class' => 'form-control', 'readonly', 'required']) }}
+				{{ Form::text('productName', $productNameAndID, ['class' => 'form-control', 'readonly']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('name', 'Name:') }}
-				{{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::text('name', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('value', 'Value:') }}
-				{{ Form::number('value', null, ['class' => 'form-control', 'step' => 'any', 'required']) }}
+				{{ Form::text('value', null, ['class' => 'form-control', 'step' => 'any']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('unit', 'Unit:') }}
-				{{ Form::text('unit', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::text('unit', null, ['class' => 'form-control']) }}
 			</div>
 		</div>
 		<div class="form-group col-12">

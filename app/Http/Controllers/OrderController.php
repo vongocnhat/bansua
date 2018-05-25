@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Payer\PayerStoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -19,7 +20,8 @@ class OrderController extends Controller
     {
         $order = new Order;
         if (Auth::check()) {
-            $data = $request->except('_token', 'method');
+            // except method because user not found method, payer, not use _token
+            $data = $request->except('_token', 'method', 'payer');
             foreach ($data as $key => $value) {
                 if(Auth::user()->$key != $value)
                     $order->$key = $value;
@@ -54,7 +56,7 @@ class OrderController extends Controller
         return view('user.payer');
     }
 
-    public function storePayer(Request $request)
+    public function storePayer(PayerStoreRequest $request)
     {
         $order = $request->session()->pull('order');
         $order->save();

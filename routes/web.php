@@ -20,14 +20,14 @@ Route::get('cart', 'CartController@index')->name('cart.index');
 Route::get('cart-update/{productID}/{quantity}', 'CartController@update')->name('cart.update');
 Route::get('cart-quantity/{productID}/{quantity}', 'CartController@quantityChange')->name('cart.quantity');
 Route::get('cart-destroy/{productID}', 'CartController@destroy')->name('cart.destroy');
-Route::prefix('user')->group(function () {
-    Route::get('create', 'UserController@create')->name('userCus.create');
-    Route::get('order', 'UserController@orderIndex')->name('userCus.order');
-    Route::get('order-show', 'UserController@orderShow')->name('userCus.show');
-	Route::post('/', 'UserController@store')->name('userCus.store');
-	Route::post('login', 'UserController@login')->name('userCus.login');
-	Route::get('logout', 'UserController@logout')->name('userCus.logout');
-});
+    // Route::get('create', 'CustomerController@create')->name('customer.create');
+    // Route::post('/', 'CustomerController@store')->name('customer.store');
+    Route::resource('customer', 'CustomerController')->except('index', 'show', 'destroy');
+    Route::get('order', 'CustomerController@orderIndex')->name('customer.order');
+    Route::get('order-show', 'CustomerController@orderShow')->name('customer.show');
+	Route::post('login', 'CustomerController@login')->name('customer.login');
+	Route::get('logout', 'CustomerController@logout')->name('customer.logout');
+
 Route::get('order-create', 'OrderController@create')->name('orderCus.create');
 Route::get('create-payer', 'OrderController@createPayer')->name('orderCus.createPayer');
 Route::post('store-payer', 'OrderController@storePayer')->name('orderCus.storePayer');

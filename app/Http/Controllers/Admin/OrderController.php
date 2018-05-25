@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Order\OrderDestroyRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 
@@ -95,13 +96,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(OrderDestroyRequest $request, $id)
     {
         //
-        if (!$request->input('ids')) {
-            session()->flash('error', 'Delete Error: Please select at least one checkbox!');
-            return back();
-        }
         $deleted = Order::destroy($request->input('ids'));
         if ($deleted == count($request->input('ids')))
             session()->flash('notify', 'Delete success!');

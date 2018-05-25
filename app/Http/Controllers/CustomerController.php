@@ -8,11 +8,11 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     public function create()
     {
-        return view('user.create');
+        return view('customer.create');
     }
 
     public function store(Request $request)
@@ -24,11 +24,33 @@ class UserController extends Controller
     	return redirect()->route('home');
     }
 
+    public function edit($id)
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            return view('customer.edit', compact('user'));
+        }
+        return view('layouts.eror');
+    }
+
+    public function update(Request $request, $id)
+    {
+        if (Auth::check())
+        {
+            $user = User::findOrFail(Auth::user()->id);
+            $user->fill($request->except('password'));
+            $user->password = Hash::make($request->input('password'));
+            session()->flash('notify', 'Cập Nhật Thông Tin Người Dùng Thành Công!');
+            return redirect()->route('customer.edit', $user->id);
+        }
+        return view('layouts.eror');
+    }
+
     public function orderIndex()
     {
         if (Auth::check()) {
             $orders = Order::where('user_id', Auth::user()->id)->get();
-            return view('user.order.index', compact('orders'));
+            return view('customer.order.index', compact('orders'));
         } else {
             return view('layouts.404');
         }
@@ -46,7 +68,7 @@ class UserController extends Controller
                         $order->$key = $value;
                 }
             }
-            return view('user.order.show', compact('order'));
+            return view('customer.order.show', compact('order'));
         } else {
             return view('layouts.404');
         }

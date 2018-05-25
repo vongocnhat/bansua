@@ -9,11 +9,14 @@
 		<div class="col-12 col-md-6">
 			<div class="form-group">
 				{{ Form::label('name', 'Name:') }}
-				{{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::text('name', null, ['class' => 'form-control ' . $errors->first('name', 'is-invalid')]) }}
+				<div class="invalid-feedback">
+			        {{ $errors->first('name') }}
+			    </div>
 			</div>
 			<div class="form-group">
 				{{ Form::label('description', 'Description:') }}
-				{{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3, 'required']) }}
+				{{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3]) }}
 			</div>
 		</div>
 		<div class="form-group col-12">

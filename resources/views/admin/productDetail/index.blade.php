@@ -2,7 +2,7 @@
   <h5 class="text-info">Product Detail</h5>
   {{ Form::open(['route' => 'productDetail.create', 'method' => 'get']) }}
     {{ Form::hidden('product_id', $product->id) }}
-    {{ Form::submit('Create', ['class' => 'btn btn-success']) }}
+    {{ Form::submit('Create Product Detail', ['class' => 'btn btn-success']) }}
   {{ Form::close() }}
 </div>
 <div class="table-responsive">

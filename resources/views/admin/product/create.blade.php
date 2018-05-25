@@ -9,39 +9,39 @@
 		<div class="col-12 col-md-6">
 			<div class="form-group">
 				{{ Form::label('category_id', 'Category Name:') }}
-				{{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Please Select', 'required']) }}
+				{{ Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Please Select']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('name', 'Name:') }}
-				{{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::text('name', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('img', 'Image:') }}
-				{{ Form::file('img', ['class' => 'form-control', 'accept' => 'image/*', 'required']) }}
+				{{ Form::file('img', ['class' => 'form-control', 'accept' => 'image/*']) }}
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
 			<div class="form-group">
 				{{ Form::label('price', 'Price:') }}
-				{{ Form::number('price', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::number('price', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('quantity', 'Quantity:') }}
-				{{ Form::number('quantity', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::number('quantity', null, ['class' => 'form-control']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('packet', 'Packet:') }}
-				{{ Form::text('packet', null, ['class' => 'form-control', 'required']) }}
+				{{ Form::text('packet', null, ['class' => 'form-control']) }}
 			</div>
 		</div>
 		<div class="form-group col-12">
 			<div class="form-group">
 				{{ Form::label('summary', 'Summary:') }}
-				{{ Form::textarea('summary', null, ['class' => 'form-control', 'rows' => '3', 'required']) }}
+				{{ Form::textarea('summary', null, ['class' => 'form-control', 'rows' => '3']) }}
 			</div>
 			<div class="form-group">
 				{{ Form::label('description', 'Description:') }}
-				{{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => '3', 'required']) }}
+				{{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => '3']) }}
 			</div>
 		</div>
 		<div class="form-group col-12">

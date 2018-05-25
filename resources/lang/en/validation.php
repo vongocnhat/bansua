@@ -143,4 +143,6 @@ return [
 
     'attributes' => [],
 
+    //my cus
+    'delete' => 'Delete Error: Please select at least one checkbox!',
 ];

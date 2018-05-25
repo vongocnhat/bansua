@@ -19,6 +19,10 @@ input[name=price]::-webkit-inner-spin-button {
 	white-space: nowrap;
 }
 
+.errors-ol {
+	padding-left: 15px;
+}
+
 label {
 	font-weight: bold;
 }

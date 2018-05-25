@@ -29,7 +29,7 @@
         <td>{{ $order->method == 'offline' ? 'Thanh Toán Khi Nhận Hàng' : 'Thanh Toán Online' }}</td>
         <td>{!! $order->status ? '<span class="text-success">Đã Thanh Toán</span>' : '<span class="required">Chưa Thanh Toán</span>' !!}</td>
         <td>{{ $order->created_at->format('d/m/Y H:i:s') }}</td>
-        <td class="text-center"><a href="{{ route('userCus.show') }}" class="fas fa-eye" title="Show: {{ $order->name }}"></a></td>
+        <td class="text-center"><a href="{{ route('customer.show') }}" class="fas fa-eye" title="Show: {{ $order->name }}"></a></td>
       </tr>
       @endforeach
     </tbody>

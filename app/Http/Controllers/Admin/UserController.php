@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\User\UserStoreRequest;
+use App\Http\Requests\User\UserUpdateRequest;
+use App\Http\Requests\User\UserDestroyRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -38,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         //
         $user = new User;
@@ -81,7 +83,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         //
         $user = User::findOrFail($id);
@@ -99,13 +101,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(UserDestroyRequest $request, $id)
     {
         //
-        if (!$request->input('ids')) {
-            session()->flash('error', 'Delete Error: Please select at least one checkbox!');
-            return back();
-        }
         $deleted = User::destroy($request->input('ids'));
         if ($deleted == count($request->input('ids')))
             session()->flash('notify', 'Delete success!');

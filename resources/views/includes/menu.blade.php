@@ -21,9 +21,9 @@
             @endforeach
           </div>
         </li>
-        <li class="nav-item">
+{{--         <li class="nav-item">
           <a class="nav-link" href="#">Liên Hệ</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           @if(!Auth::check())
           <span class="nav-link cursor-pointer" id="btn-login"><i class="fas fa-user-secret"></i> Đăng Nhập</span>
@@ -34,8 +34,9 @@
             <i class="fas fa-user-secret"></i> Xin Chào: {{ Auth::user()->name }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('userCus.order') }}">Xem Các Đơn Hàng</a>
-            <a class="dropdown-item" href="{{ route('userCus.logout') }}">Thoát</a>
+            <a class="dropdown-item" href="{{ route('customer.order') }}">Các Đơn Hàng</a>
+            <a class="dropdown-item" href="{{ route('customer.edit', Auth::user()->id) }}">Thông Tin Tài Khoản</a>
+            <a class="dropdown-item" href="{{ route('customer.logout') }}">Thoát</a>
           </div>
         </li>
         @endif

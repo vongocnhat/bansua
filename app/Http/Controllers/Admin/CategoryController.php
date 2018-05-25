@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Category\CategoryStoreRequest;
+use App\Http\Requests\Category\CategoryUpdateRequest;
+use App\Http\Requests\Category\CategoryDestroyRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 
@@ -37,7 +39,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
         //
         $category = new Category;
@@ -78,7 +80,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
         //
         $category = Category::findOrFail($id);
@@ -94,13 +96,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(CategoryDestroyRequest $request, $id)
     {
         //
-        if (!$request->input('ids')) {
-            session()->flash('error', 'Delete Error: Please select at least one checkbox!');
-            return back();
-        }
         $deleted = Category::destroy($request->input('ids'));
         if ($deleted == count($request->input('ids')))
             session()->flash('notify', 'Delete success!');

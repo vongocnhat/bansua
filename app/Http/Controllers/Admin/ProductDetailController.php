@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductDetail\ProductDetailStoreRequest;
+use App\Http\Requests\ProductDetail\ProductDetailUpdateRequest;
+use App\Http\Requests\ProductDetail\ProductDetailDeleteRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductDetail;
@@ -40,7 +43,7 @@ class ProductDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductDetailStoreRequest $request)
     {
         //
         $productDetail = new ProductDetail;
@@ -82,7 +85,7 @@ class ProductDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductDetailUpdateRequest $request, $id)
     {
         //
         $productDetail = ProductDetail::findOrFail($id);
@@ -98,13 +101,9 @@ class ProductDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(ProductDetailDestroyRequest $request, $id)
     {
         //
-        if (!$request->input('ids')) {
-            session()->flash('error', 'Delete Error: Please select at least one checkbox!');
-            return back();
-        }
         $deleted = ProductDetail::destroy($request->input('ids'));
         if ($deleted == count($request->input('ids')))
             session()->flash('notify', 'Delete success!');
