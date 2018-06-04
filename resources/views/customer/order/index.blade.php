@@ -1,5 +1,6 @@
 @extends('layouts.homeDefault')
 @section('content')
+@if (count($orders))
 <div class="table-responsive">
   {!! Form::open(['route' => ['order.destroy', 0], 'method' => 'delete']) !!}
     {{ Form::button(' Hủy Tất Cả Đơn Hàng Được Chọn', ['type' => 'submit', 'class' => 'fas fa-trash-alt icon-submit', 'title' => 'Hủy Tất Cả Đơn Hàng Được Chọn', 'onclick' => "return confirm('Hủy Tất Cả Đơn Hàng Được Chọn?')"]) }}
@@ -36,4 +37,7 @@
   </table>
   {!! Form::close() !!}
 </div>
+@else
+  <h5 class="error text-center">Bạn chưa mua gì</h5>
+@endif
 @endsection

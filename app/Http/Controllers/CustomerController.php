@@ -30,7 +30,7 @@ class CustomerController extends Controller
             $user = Auth::user();
             return view('customer.edit', compact('user'));
         }
-        return view('layouts.eror');
+        return view('layouts.error');
     }
 
     public function update(Request $request, $id)
@@ -43,7 +43,7 @@ class CustomerController extends Controller
             session()->flash('notify', 'Cập Nhật Thông Tin Người Dùng Thành Công!');
             return redirect()->route('customer.edit', $user->id);
         }
-        return view('layouts.eror');
+        return view('layouts.error');
     }
 
     public function orderIndex()

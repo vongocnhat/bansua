@@ -8,7 +8,7 @@
 	overflow-y: scroll;
 	overflow-x: auto;
 	display: none;
-	z-index: 2;
+	z-index: 1000;
 }
 
 .dialog-box {

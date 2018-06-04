@@ -82,7 +82,6 @@
 			productIDClicked.push(productID);
 			$('#number-product').text(parseInt($('#number-product').text())+1);
 		}
-
 	});
 	//// btn-addtocart click
 	// btn-cart click

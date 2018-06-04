@@ -135,7 +135,7 @@
 			  </div>
 		</div>
 		<div class="form-group col-12">
-			{{ Form::button('Back', ['class' => 'btn btn-danger', 'onclick' => 'window.history.back()']) }}
+			<a href="{{ route('order.index') }}" class="btn btn-danger">Cancel</a>
 		</div>
 	</div>
 </div>

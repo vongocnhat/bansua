@@ -27,7 +27,7 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Create', ['class' => 'btn btn-success']) }}
-			{{ Form::button('Cancel', ['class' => 'btn btn-danger', 'onclick' => 'window.history.back()']) }}
+			<a href="{{ route('product.edit', request()->input('product_id')) }}" class="btn btn-danger">Cancel</a>
 		</div>
 	</div>
 	{!! Form::close() !!}

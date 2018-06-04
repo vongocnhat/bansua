@@ -53,12 +53,13 @@
             </span>
           </label>
         </td>
-        <td>{{ $order->created_at->format('H:i:s d/m/Y') }}</td>
+        <td>{{ $order->created_at->format('d/m/Y H:i:s') }}</td>
         <td class="text-center"><a href="{{ route('order.show', $order->id) }}" class="fas fa-eye" title="Show: {{ $order->name }}"></a></td>
       </tr>
       @endforeach
     </tbody>
   </table>
+  {!! Form::close() !!}
 </div>
 {!! Form::open(['route' => ['order.update', 0], 'method' => 'put', 'id' => 'ajaxPayForm']) !!}
 {!! Form::close() !!}

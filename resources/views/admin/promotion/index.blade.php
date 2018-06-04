@@ -12,7 +12,7 @@
         <th>{{ Form::checkbox(null, null, null, ['class' => 'parent-checkbox-delete']) }}</th>
         <th>ID</th>
         <th>Product Name</th>
-        <th>price</th>
+        <th>Price Promotion</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Created At</th>
@@ -25,7 +25,7 @@
         <th>{{ Form::checkbox(null, null, null, ['class' => 'parent-checkbox-delete']) }}</th>
         <th>ID</th>
         <th>Product Name</th>
-        <th>price</th>
+        <th>Price Promotion</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Created At</th>

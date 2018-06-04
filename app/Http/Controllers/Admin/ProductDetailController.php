@@ -21,7 +21,7 @@ class ProductDetailController extends Controller
     {
         //
         $productDetails = ProductDetail::all();
-        return view('admin.productDetail.index', compact('productDetails'));
+        return view('admin.product.productDetail.index', compact('productDetails'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductDetailController extends Controller
         //
         $productID = $request->input('product_id');
         $productName = Product::findOrFail($productID)->name . ' ( ID: ' . $productID . ' )';
-        return view('admin.productDetail.create', compact('productName'));
+        return view('admin.product.productDetail.create', compact('productName'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductDetailController extends Controller
         //
         $productDetail = ProductDetail::with('product')->findOrFail($id);
         $productNameAndID = $productDetail->product->name . ' ( ID: ' . $productDetail->product->id . ' )';
-        return view('admin.productDetail.edit', compact('productDetail', 'productNameAndID'));
+        return view('admin.product.productDetail.edit', compact('productDetail', 'productNameAndID'));
     }
 
     /**

@@ -53,7 +53,7 @@ class OrderController extends Controller
 
     public function createPayer()
     {
-        return view('user.payer');
+        return view('customer.payer');
     }
 
     public function storePayer(PayerStoreRequest $request)

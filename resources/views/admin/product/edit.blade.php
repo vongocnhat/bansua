@@ -46,12 +46,12 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Save Product', ['class' => 'btn btn-success']) }}
-			{{ Form::button('Cancel', ['class' => 'btn btn-danger', 'onclick' => 'window.history.back()']) }}
+			<a href="{{ route('product.index') }}" class="btn btn-danger">Cancel</a>
 		</div>
 	</div>
 	{!! Form::close() !!}
 </div>
-@include('admin.productDetail.index')
+@include('admin.product.productDetail.index')
 @endsection
 @section('script')
 <script type="text/javascript" src="admin/vendor/ckeditor/ckeditor.js"></script>

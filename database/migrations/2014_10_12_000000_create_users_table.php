@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('address');
+            $table->string('img');
             $table->boolean('active')->default(true);
             $table->boolean('admin')->default(false);
             $table->rememberToken();

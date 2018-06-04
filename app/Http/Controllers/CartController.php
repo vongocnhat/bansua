@@ -33,7 +33,7 @@ class CartController extends Controller
                 'product_id' => $productID,
                 'name' => $productDB->name,
                 'price' => $price,
-                'quantity' => 1,
+                'quantity' => $quantity,
             ];
             $request->session()->put('products.' . $productID, $product);
         }
