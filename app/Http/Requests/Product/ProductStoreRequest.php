@@ -26,7 +26,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'category_id' => 'required|numeric|max:4294967295|exists:categories,id',
             'name' => 'required|max:255|unique:products',
-            'img' => 'required|max:255',
+            'img' => 'required',
             'quantity' => 'required|numeric|max:4294967295',
             'price' => 'required|numeric|max:4294967295',
             'packet' => 'required|max:255',

@@ -27,7 +27,7 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Create', ['class' => 'btn btn-success']) }}
-			<a href="{{ route('product.edit', request()->input('product_id')) }}" class="btn btn-danger">Cancel</a>
+			<a href="{{ route('product.edit', request()->input('product_id')) }}" class="btn btn-danger">@lang('default.cancel')</a>
 		</div>
 	</div>
 	{!! Form::close() !!}

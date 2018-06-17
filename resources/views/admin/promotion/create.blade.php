@@ -26,7 +26,7 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Create', ['class' => 'btn btn-success']) }}
-			{{ Form::button('Cancel', ['class' => 'btn btn-danger', 'onclick' => 'window.history.back()']) }}
+			{{ Form::button(__('default.cancel'), ['class' => 'btn btn-danger', 'onclick' => 'window.history.back()']) }}
 		</div>
 	</div>
 	{!! Form::close() !!}

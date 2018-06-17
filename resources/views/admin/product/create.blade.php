@@ -46,7 +46,7 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Create', ['class' => 'btn btn-success']) }}
-			<a href="{{ route('product.index') }}" class="btn btn-danger">Cancel</a>
+			<a href="{{ route('product.index') }}" class="btn btn-danger">@lang('default.cancel')</a>
 		</div>
 	</div>
 	{!! Form::close() !!}

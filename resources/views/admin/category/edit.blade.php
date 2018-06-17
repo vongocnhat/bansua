@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Save', ['class' => 'btn btn-success']) }}
-			<a href="{{ route('category.index') }}" class="btn btn-danger">Cancel</a>
+			<a href="{{ route('category.index') }}" class="btn btn-danger">@lang('default.cancel')</a>
 		</div>
 	</div>
 	{!! Form::close() !!}

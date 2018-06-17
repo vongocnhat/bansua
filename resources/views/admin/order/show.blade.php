@@ -135,7 +135,7 @@
 			  </div>
 		</div>
 		<div class="form-group col-12">
-			<a href="{{ route('order.index') }}" class="btn btn-danger">Cancel</a>
+			<a href="{{ route('order.index') }}" class="btn btn-danger">@lang('default.cancel')</a>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
+
     public function create()
     {
         return view('customer.create');
@@ -17,11 +17,11 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-    	$user = new User;
-    	$user->fill($request->except('password', 'active', 'admin'));
-    	$user->password = Hash::make($request->input('password'));
-    	$user->save();
-    	return redirect()->route('home');
+        $user = new User();
+        $user->fill($request->except('password', 'active', 'admin'));
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+        return redirect()->route('home');
     }
 
     public function edit($id)
@@ -35,13 +35,17 @@ class CustomerController extends Controller
 
     public function update(Request $request, $id)
     {
-        if (Auth::check())
-        {
-            $user = User::findOrFail(Auth::user()->id);
-            $user->fill($request->except('password', 'active', 'admin'));
-            $user->password = Hash::make($request->input('password'));
-            session()->flash('notify', 'Cập Nhật Thông Tin Người Dùng Thành Công!');
-            return redirect()->route('customer.edit', $user->id);
+        if (Auth::check()) {
+            $user = User::findOrFail($id);
+            if (Auth::user()->can('update', $user)) {
+                $user->fill($request->except('password', 'active', 'admin'));
+                $user->password = Hash::make($request->input('password'));
+                $user->save();
+                session()->flash('notify', 'Cập Nhật Thông Tin Người Dùng Thành Công!');
+                return redirect()->route('customer.edit', $user->id);
+            } else {
+                return view('layouts.error', ['error' => 'Bạn Không Có Quyền Thay Đổi Người Dùng Này']);
+            }
         }
         return view('layouts.error');
     }
@@ -64,7 +68,7 @@ class CustomerController extends Controller
                 $img = $order->user->img;
                 $user = collect($order->user->toArray())->except('active', 'admin', 'created_at', 'updated_at', 'img', 'id');
                 foreach ($user as $key => $value) {
-                    if(!isset($order->$key))
+                    if (! isset($order->$key))
                         $order->$key = $value;
                 }
             }
@@ -76,11 +80,19 @@ class CustomerController extends Controller
 
     public function login(Request $request)
     {
-    	$account = $request->input('email');
-    	$password = $request->input('password');
-    	if (Auth::attempt(['email' => $account, 'password' => $password, 'active' => 1]) || Auth::attempt(['phone' => $account, 'password' => $password, 'active' => 1])) {
-		    echo route('home');
-		} else {
+        $account = $request->input('email');
+        $password = $request->input('password');
+        if (Auth::attempt([
+            'email' => $account,
+            'password' => $password,
+            'active' => 1
+        ]) || Auth::attempt([
+            'phone' => $account,
+            'password' => $password,
+            'active' => 1
+        ])) {
+            echo route('home');
+        } else {
             echo 'Đăng Nhập Thất Bại';
         }
     }

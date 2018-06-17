@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\DestroyRule;
 
 class CategoryDestroyRequest extends FormRequest
 {

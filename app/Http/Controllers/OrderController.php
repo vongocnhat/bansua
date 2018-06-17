@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Payer\PayerStoreRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
-use App\Models\OrderProduct;
 use App\Models\Payer;
 
 class OrderController extends Controller
@@ -47,7 +46,7 @@ class OrderController extends Controller
         $order->save();
         $this->storeOrderProduct($products, $order->id);
         $request->session()->forget('products');
-        $request->session()->flash('notify', 'Đặt Hàng Thành Công');
+        $request->session()->flash('notify', 'Đặt hàng thành công');
     	return redirect()->route('home');
     }
 
@@ -68,7 +67,7 @@ class OrderController extends Controller
         //// store payer
         $products = $request->session()->pull('products');
         $this->storeOrderProduct($products, $order->id);
-        $request->session()->flash('notify', 'Đặt Hàng Thành Công');
+        $request->session()->flash('notify', 'Đặt hàng thành công');
         return redirect()->route('home');
     }
 

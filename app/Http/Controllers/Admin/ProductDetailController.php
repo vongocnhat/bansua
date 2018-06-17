@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductDetail\ProductDetailStoreRequest;
 use App\Http\Requests\ProductDetail\ProductDetailUpdateRequest;
-use App\Http\Requests\ProductDetail\ProductDetailDeleteRequest;
+use App\Http\Requests\ProductDetail\ProductDetailDestroyRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductDetail;

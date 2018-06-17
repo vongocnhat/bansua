@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Http\Requests\Product\ProductDestroyRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Product;
@@ -131,7 +131,7 @@ class ProductController extends Controller
     public function saveImg($request, $productID)
     {
         $image = $request->file('img');
-        $extension = \File::extension($image->getClientOriginalName());
+        $extension = File::extension($image->getClientOriginalName());
         $fileName = $productID . '.' . $extension;
         $imageMedium = Image::make($image->getRealPath());
         $imageMedium->resize(240, 240);

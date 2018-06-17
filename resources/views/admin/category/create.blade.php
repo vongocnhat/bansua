@@ -8,20 +8,20 @@
 	<div class="row">
 		<div class="col-12 col-md-6">
 			<div class="form-group">
-				{{ Form::label('name', 'Name:') }}
+				{{ Form::label('name', __('category.name')) }}
 				{{ Form::text('name', null, ['class' => 'form-control ' . $errors->first('name', 'is-invalid')]) }}
 				<div class="invalid-feedback">
 			        {{ $errors->first('name') }}
 			    </div>
 			</div>
 			<div class="form-group">
-				{{ Form::label('description', 'Description:') }}
+				{{ Form::label('description', __('category.description')) }}
 				{{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => 3]) }}
 			</div>
 		</div>
 		<div class="form-group col-12">
 			{{ Form::submit('Create', ['class' => 'btn btn-success']) }}
-			<a href="{{ route('category.index') }}" class="btn btn-danger">Cancel</a>
+			<a href="{{ route('category.index') }}" class="btn btn-danger">@lang('default.cancel')</a>
 		</div>
 	</div>
 	{!! Form::close() !!}
