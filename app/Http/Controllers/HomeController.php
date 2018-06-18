@@ -35,4 +35,12 @@ class HomeController extends Controller
         $categoryName = 'Các Sản Phẩm Tìm Được';
         return view('categoryProduct', compact('products', 'categoryName'));
     }
+
+    public function changeLanguage($language)
+    {
+        session()->put('website_language', $language);
+        // dd(config('app.locale'));
+        // dd(session()->get('website_language'));
+        return redirect()->back();
+    }
 }

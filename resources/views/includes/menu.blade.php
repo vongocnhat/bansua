@@ -6,6 +6,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{!! route('user.change-language', ['en']) !!}">English</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{!! route('user.change-language', ['vi']) !!}">Vietnam</a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" href="">Trang Chủ
             <span class="sr-only">(current)</span>
@@ -31,7 +37,7 @@
           @else
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-secret"></i> Xin Chào: {{ Auth::user()->name }}
+            <i class="fas fa-user-secret"></i> {{ __('home.welcome', ['name' => Auth::user()->name]) }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('customer.order') }}">Các Đơn Hàng</a>
