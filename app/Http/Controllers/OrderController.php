@@ -45,6 +45,9 @@ class OrderController extends Controller
         }
         $order->save();
         $this->storeOrderProduct($products, $order->id);
+        // send email
+        Mail::to('volam2271461@gmail.com')->send('send');
+        //// send email
         $request->session()->forget('products');
         $request->session()->flash('notify', 'Đặt hàng thành công');
     	return redirect()->route('home');

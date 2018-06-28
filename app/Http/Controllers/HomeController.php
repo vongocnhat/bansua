@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use Mail;
 
 class HomeController extends Controller
 {
     //
     public function index()
     {
+        // send email
+        Mail::send('admin.mail', ['name'=>'Vo Ngoc Nhat','email'=> 'nhatdn96it@gmail.com', 'content' => 'content'], function($message){
+            $message->to('nhatdn96it@gmail.com', 'Visitor')->subject('Visitor Feedback!');
+        });
+        //// send email
+        die;
     	$categories = Category::with('products')->get();
-    	return view('home', compact("categories"));
+    	return view('home', compact('categories'));
     }
 
     public function show($productID)

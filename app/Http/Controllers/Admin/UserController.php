@@ -8,9 +8,16 @@ use App\Http\Requests\User\UserDestroyRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Repositories\Contracts\UserRepositoryInterface;
 
 class UserController extends Controller
 {
+    protected $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
+        $users = $this->userRepository->all();
         return view('admin.user.index', compact('users'));
     }
 
@@ -43,7 +50,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         //
-        $user = new User;
+        $user = $this->userRepository;
         $user->fill($request->except('password'));
         $user->password = Hash::make($request->input('password'));
         $user->admin = 1;

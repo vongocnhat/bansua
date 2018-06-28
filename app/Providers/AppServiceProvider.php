@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // khai báo interface và repository
+        $this->app->bind(
+            'App\Repositories\Contracts\UserRepositoryInterface',
+            'App\Repositories\Eloquents\UserRepository'
+        );
     }
 }
