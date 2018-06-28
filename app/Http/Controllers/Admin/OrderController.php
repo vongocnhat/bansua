@@ -19,7 +19,6 @@ class OrderController extends Controller
     public function index()
     {
         //
-        Mail::to('nhatdn96it@gmail.com')->queue(new OrderMail());
         $orders = Order::all();
         return view('admin.order.index', compact('orders'));
     }
