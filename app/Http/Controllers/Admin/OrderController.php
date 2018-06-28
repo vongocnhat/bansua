@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Order\OrderDestroyRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class OrderController extends Controller
 {
@@ -17,6 +19,7 @@ class OrderController extends Controller
     public function index()
     {
         //
+        Mail::to('nhatdn96it@gmail.com')->queue(new OrderMail());
         $orders = Order::all();
         return view('admin.order.index', compact('orders'));
     }

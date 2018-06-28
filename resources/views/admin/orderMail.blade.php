@@ -1,4 +1,1 @@
-{{$name}}
-{{$email}}
-{{$content}}
-asdasdsa
+asdasdsajkhdjkashdk
