@@ -1,6 +1,7 @@
 <?php
 
 return [
-	'name' => 'Name<Nhat>',
-    'description' => 'Description<Nhat>',
+	'name' => 'Name',
+    'description' => 'Description',
+    'category' => 'Category',
 ];

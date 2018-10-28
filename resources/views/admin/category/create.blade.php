@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 @section('content')
 <div class="card-header">
-  <i class="fa fa-table"></i> <b>Create Admin</b>
+  <i class="fa fa-table"></i> <b>@lang('category.category') @lang('')</b>
 </div>
 <div class="p-15">
 	{!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
